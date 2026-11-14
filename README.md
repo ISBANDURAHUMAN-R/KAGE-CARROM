@@ -1,6 +1,6 @@
 <div align="center">
 
-# ⚡ KAGE CARROM (影)
+# ◈ KAGE CARROM (影)
 ### Master the Board • Outsmart the Shadows
 
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-Play%20Online-E50914?style=for-the-badge&logo=google-chrome&logoColor=white)](https://isbandurahuman-r.github.io/KAGE-CARROM/)
@@ -18,7 +18,7 @@
 </p>
 
 <p align="center">
-  <a href="https://isbandurahuman-r.github.io/KAGE-CARROM/"><strong>🚀 Play Live Demo »</strong></a>
+  <a href="https://isbandurahuman-r.github.io/KAGE-CARROM/"><strong>Play Live Demo »</strong></a>
   •
   <a href="#-key-features">Key Features</a>
   •
@@ -31,7 +31,7 @@
 
 ---
 
-### 🎯 Live Gameplay Preview
+### ✦ Live Gameplay Preview
 *(Unmarked, full-resolution authentic rendering)*
 
 <img src="./screenshots/gameplay.png" alt="Kage Carrom - Live Gameplay Board" width="100%" style="border-radius: 12px; border: 1px solid rgba(255, 0, 51, 0.2); box-shadow: 0 10px 30px rgba(0,0,0,0.8);" />
@@ -39,7 +39,7 @@
 <br/>
 
 <details>
-  <summary><b>👁️ Click to view Main Menu & Visual Theme</b></summary>
+  <summary><b>Click to view Main Menu & Visual Theme</b></summary>
   <br/>
   <img src="./screenshots/menu.png" alt="Kage Carrom - Main Menu" width="100%" style="border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.1);" />
 </details>
@@ -48,7 +48,7 @@
 
 ---
 
-## 📖 Description
+## ◆ Description
 
 **KAGE CARROM** is a modern reimagining of the beloved tabletop game Carrom, engineered from the ground up for the modern web. Built with zero external canvas game frameworks—leveraging raw **HTML5 Canvas 2D API** and **Matter.js** rigid-body physics—it delivers sub-millimeter trajectory precision, real-time restitution simulation, and fluid 60+ FPS motion.
 
@@ -61,32 +61,32 @@ Designed and developed by **ISBANDU RAHUMAN R**, the game captures both the nost
 
 ---
 
-## 🌐 Live Demo
+## ⬡ Live Demo
 
 Experience Kage Carrom directly in your browser with zero installations:
 
 [![Play Kage Carrom Online](https://img.shields.io/badge/PLAY%20NOW-KAGE%20CARROM%20LIVE-E50914?style=for-the-badge&logo=google-chrome&logoColor=white)](https://isbandurahuman-r.github.io/KAGE-CARROM/)
 
-🔗 **Direct URL**: [https://isbandurahuman-r.github.io/KAGE-CARROM/](https://isbandurahuman-r.github.io/KAGE-CARROM/)
+› **Direct URL**: [https://isbandurahuman-r.github.io/KAGE-CARROM/](https://isbandurahuman-r.github.io/KAGE-CARROM/)
 
 ---
 
-## ✨ Key Features
+## ❖ Key Features
 
 | Feature | Description |
 | :--- | :--- |
-| 🪓 **Authentic Physics** | Matter.js 2D physics simulating board rim bounces, coin-to-coin impulse propagation, and suction pocket sinks. |
-| 👑 **Queen & Cover Rules** | Full official cover validation: instant single-shot cover or sequential next-stroke verification. |
-| 🤖 **3 AI Personalities** | **Rookie** (casual aiming), **Tactical** (direct path raycasting), and **Shadow Master** (bank shots & laser precision). |
-| 🎮 **Multiple Game Modes** | Play vs AI, Local 2-Player Pass & Play, and Practice / Trickshot sandbox. |
-| 🔊 **Procedural Audio** | Web Audio API synthesizer for striker knocks, pocket drops, foul alarms, and Queen shimmer. |
-| 📱 **Mobile & Desktop** | Full multi-touch support, smooth slider controls, angle steppers, and mouse drag-and-aim mechanics. |
-| 📊 **Career Statistics** | LocalStorage persistence for matches played, win streaks, pocket accuracy, and Queen capture tallies. |
-| ⚙️ **Customizable Settings** | Fine-tune SFX volume, ambient drone, aiming assist guidelines, and board powder friction. |
+| ▲ **Authentic Physics** | Matter.js 2D physics simulating board rim bounces, coin-to-coin impulse propagation, and suction pocket sinks. |
+| ※ **Queen & Cover Rules** | Full official cover validation: instant single-shot cover or sequential next-stroke verification. |
+| ◬ **3 AI Personalities** | **Rookie** (casual aiming), **Tactical** (direct path raycasting), and **Shadow Master** (bank shots & laser precision). |
+| ● **Multiple Game Modes** | Play vs AI, Local 2-Player Pass & Play, and Practice / Trickshot sandbox. |
+| ♪ **Procedural Audio** | Web Audio API synthesizer for striker knocks, pocket drops, foul alarms, and Queen shimmer. |
+| ◻ **Mobile & Desktop** | Full multi-touch support, smooth slider controls, angle steppers, and mouse drag-and-aim mechanics. |
+| ▪ **Career Statistics** | LocalStorage persistence for matches played, win streaks, pocket accuracy, and Queen capture tallies. |
+| ◎ **Customizable Settings** | Fine-tune SFX volume, ambient drone, aiming assist guidelines, and board powder friction. |
 
 ---
 
-## 📜 Official Carrom Rules
+## § Official Carrom Rules
 
 1. **Piece Allocation**:
    - **Player 1 (White pieces)**: 9 coins (10 points each)
@@ -104,7 +104,7 @@ Experience Kage Carrom directly in your browser with zero installations:
 
 ---
 
-## 🕹️ Controls
+## ▸ Controls
 
 | Action | Desktop (Mouse / Keyboard) | Mobile / Touch |
 | :--- | :--- | :--- |
@@ -116,7 +116,7 @@ Experience Kage Carrom directly in your browser with zero installations:
 
 ---
 
-## 🚀 Quick Start
+## ▲ Quick Start
 
 ### Prerequisites
 - Node.js (v18.0.0 or higher recommended)
@@ -149,7 +149,7 @@ npm run preview
 
 ---
 
-## 📁 Project Architecture
+## □ Project Architecture
 
 ```
 kage-carrom/
@@ -186,7 +186,7 @@ kage-carrom/
 
 ---
 
-## 🛠️ Tech Stack
+## ⬢ Tech Stack
 
 - **Frontend Framework**: [React 19](https://react.dev/)
 - **Build Tool**: [Vite 8](https://vitejs.dev/)
@@ -199,22 +199,22 @@ kage-carrom/
 
 ---
 
-## 👤 Author & Credits
+## ※ Author & Credits
 
 Designed, architected, and built with passion by:
 
 ### **ISBANDU RAHUMAN R**
-- 🐙 **GitHub Profile**: [@ISBANDURAHUMAN-R](https://github.com/ISBANDURAHUMAN-R)
-- 💼 **Project Repository**: [https://github.com/ISBANDURAHUMAN-R/KAGE-CARROM](https://github.com/ISBANDURAHUMAN-R/KAGE-CARROM)
+- › **GitHub Profile**: [@ISBANDURAHUMAN-R](https://github.com/ISBANDURAHUMAN-R)
+- » **Project Repository**: [https://github.com/ISBANDURAHUMAN-R/KAGE-CARROM](https://github.com/ISBANDURAHUMAN-R/KAGE-CARROM)
 
 ---
 
-## 🏷️ Tags & Topics
+## ◇ Tags & Topics
 
 `#carrom` `#carrom-board` `#react19` `#vite` `#matterjs` `#html5-canvas` `#physics-engine` `#game-development` `#javascript` `#tailwindcss` `#web-audio-api` `#board-game` `#arcade-game` `#indie-game` `#dark-mode` `#voidkage` `#kage-carrom` `#isbandu-rahuman-r` `#two-player-game` `#ai-opponent` `#tabletop-gaming`
 
 ---
 
-## 📄 License
+## ■ License
 
 This project is licensed under the [MIT License](LICENSE) - see the LICENSE file for details.
