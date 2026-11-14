@@ -9,7 +9,10 @@ import { getSettings, saveSettings, getStats, saveStats } from './utils/storage'
 import { sound } from './utils/audio';
 
 export default function App() {
-  const [currentScreen, setCurrentScreen] = useState('menu'); // 'menu' | 'game'
+  const [currentScreen, setCurrentScreen] = useState(() => {
+    const p = new URLSearchParams(window.location.search).get('screen');
+    return p === 'game' ? 'game' : 'menu';
+  });
   const [gameMode, setGameMode] = useState('vs-ai');
   const [aiDifficulty, setAiDifficulty] = useState('tactical');
 
