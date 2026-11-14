@@ -4,6 +4,8 @@
 
 # ◈ Kage Carrom
 
+**Live Website:** [https://isbandurahuman-r.github.io/KAGE-CARROM/](https://isbandurahuman-r.github.io/KAGE-CARROM/)
+
 ## ◆ About the Project
 Kage Carrom is a 2D physics-based web simulation of the traditional tabletop Carrom board game. It features accurate zero-gravity rigid-body dynamics, powder friction modeling, and official international rules enforcement including Queen cover mechanics and penalty scratches. The project also provides three distinct AI opponents utilizing geometric raycasting and cushion bank shot calculations.
 
@@ -43,4 +45,5 @@ npm run build
 
 ## ※ Developer
 Developer: ISBANDU RAHUMAN R  
-GitHub: https://github.com/ISBANDURAHUMAN-R
+GitHub: https://github.com/ISBANDURAHUMAN-R  
+Live Website: https://isbandurahuman-r.github.io/KAGE-CARROM/
