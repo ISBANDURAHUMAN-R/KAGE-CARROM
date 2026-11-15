@@ -6,7 +6,7 @@ import {
   COIN_RADIUS,
   STRIKER_RADIUS,
   PIECE_TYPES,
-} from './constants';
+} from './constants.js';
 
 export class CarromAI {
   constructor(difficulty = 'tactical') {

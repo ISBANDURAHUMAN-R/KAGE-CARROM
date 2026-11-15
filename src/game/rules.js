@@ -1,3 +1,5 @@
+import { PIECE_TYPES } from './constants.js';
+
 export const GAME_MODES = {
   VS_AI: 'vs-ai',
   PASS_AND_PLAY: 'pass-and-play',
