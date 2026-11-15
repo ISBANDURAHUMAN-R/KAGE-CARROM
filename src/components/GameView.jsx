@@ -34,6 +34,7 @@ export default function GameView({
   const aiTimerRef = useRef(null);
   const handlePiecesAtRestRef = useRef(null);
   const handleGameRuleEventRef = useRef(null);
+  const settingsRef = useRef(settings);
 
   // Real-time Aiming State Ref (Eliminates closure lag in requestAnimationFrame)
   const aimStateRef = useRef({
@@ -114,7 +115,7 @@ export default function GameView({
     aiRef.current = ai;
 
     const physics = new CarromPhysics({
-      frictionMode: settings.powderFriction || 'standard',
+      frictionMode: settingsRef.current?.powderFriction || 'standard',
       onCollision: ({ isWall, speed, point }) => {
         if (isWall) {
           sound.playCushionBounce(speed);
@@ -185,7 +186,7 @@ export default function GameView({
           player: rules.currentTurn,
         },
         validStrikerPlacement: curValid,
-        guidelineLevel: settings.guidelineAssist || 'full',
+        guidelineLevel: settingsRef.current?.guidelineAssist || 'full',
         isCharging: curCharging,
       });
 
@@ -498,6 +499,7 @@ export default function GameView({
   useEffect(() => {
     handlePiecesAtRestRef.current = handlePiecesAtRest;
     handleGameRuleEventRef.current = handleGameRuleEvent;
+    settingsRef.current = settings;
   });
 
   // Pointer interaction handlers
