@@ -1,6 +1,5 @@
-// KAGE CARROM - Minimalist RED / BLACK / WHITE Statistics
 import React from 'react';
-import { X, Trophy, Target, Award, ShieldAlert, RotateCcw } from 'lucide-react';
+import { X, Trophy, Award, ShieldAlert, RotateCcw } from 'lucide-react';
 import { sound } from '../utils/audio';
 
 export default function StatsModal({ stats, onClose, onResetStats }) {

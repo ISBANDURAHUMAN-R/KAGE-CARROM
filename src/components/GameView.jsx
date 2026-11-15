@@ -1,5 +1,3 @@
-// KAGE CARROM - Core Game Controller (Exact Unity Carrom Physics & Game Logic)
-// Guaranteed 100% Mobile, Tablet & Desktop Responsive (Touch Safe, Zero Crash, Zero Cutoff)
 import React, { useEffect, useRef, useState, useCallback } from 'react';
 import { CarromPhysics } from '../game/physics';
 import { CarromRenderer } from '../game/renderer';
@@ -34,6 +32,8 @@ export default function GameView({
   const aiRef = useRef(null);
   const animFrameRef = useRef(null);
   const aiTimerRef = useRef(null);
+  const handlePiecesAtRestRef = useRef(null);
+  const handleGameRuleEventRef = useRef(null);
 
   // Real-time Aiming State Ref (Eliminates closure lag in requestAnimationFrame)
   const aimStateRef = useRef({
@@ -105,7 +105,7 @@ export default function GameView({
       mode,
       aiDifficulty,
       onEvent: (event) => {
-        handleGameRuleEvent(event);
+        handleGameRuleEventRef.current?.(event);
       },
     });
     rulesRef.current = rules;
@@ -133,7 +133,7 @@ export default function GameView({
         rules.registerPocket(type);
       },
       onRest: () => {
-        handlePiecesAtRest();
+        handlePiecesAtRestRef.current?.();
       },
     });
     physicsRef.current = physics;
@@ -218,7 +218,7 @@ export default function GameView({
         setTimeLeft(Math.ceil(rules.timeLeft));
 
         if (rules.timeLeft <= 0) {
-          handlePiecesAtRest();
+          handlePiecesAtRestRef.current?.();
         }
       }
     }, 1000);
@@ -248,7 +248,7 @@ export default function GameView({
     return !overlap;
   }, []);
 
-  // Striker Slider position change (matching Unity StrikerController SetSliderX)
+  // Striker position adjustment along baseline
   const handleStrikerXChange = (newX) => {
     setStrikerX(newX);
     aimStateRef.current.strikerX = newX;
@@ -288,7 +288,7 @@ export default function GameView({
     };
   };
 
-  // Live Aim & Pull Calculation (matching Unity OnMouseDrag slingshot vector)
+  // Live aim angle and impulse force calculation
   const updateAimFromPointer = (pointerX, pointerY) => {
     if (!physicsRef.current || !physicsRef.current.striker) return;
     const sx = physicsRef.current.striker.position.x;
@@ -339,7 +339,7 @@ export default function GameView({
     }
   };
 
-  // Turn Settlement after all pieces come to rest (matching Unity GameManager)
+  // Turn settlement after all pieces come to rest
   const handlePiecesAtRest = () => {
     const physics = physicsRef.current;
     const rules = rulesRef.current;
@@ -408,7 +408,7 @@ export default function GameView({
     }
   };
 
-  // AI Turn Execution (matching Unity EnemyStrikerController)
+  // AI turn execution
   const triggerAiTurn = () => {
     const ai = aiRef.current;
     const physics = physicsRef.current;
@@ -495,7 +495,12 @@ export default function GameView({
     setShowGameOver(false);
   };
 
-  // Pointer Handlers (matching Unity StrikerController OnMouseDown, OnMouseDrag, OnMouseUp)
+  useEffect(() => {
+    handlePiecesAtRestRef.current = handlePiecesAtRest;
+    handleGameRuleEventRef.current = handleGameRuleEvent;
+  });
+
+  // Pointer interaction handlers
   const handlePointerDown = (e) => {
     if (e.cancelable) e.preventDefault();
     if (phase === TURN_PHASES.IN_MOTION || (mode === 'vs-ai' && currentTurn === 'player2')) return;
@@ -579,7 +584,7 @@ export default function GameView({
         />
       </div>
 
-      {/* Bottom Controls (Matching Unity strikerSlider) */}
+      {/* Bottom Controls */}
       <div ref={footerRef} className="w-full max-w-xl shrink-0 px-2 py-1">
         <AimControls
           phase={phase}

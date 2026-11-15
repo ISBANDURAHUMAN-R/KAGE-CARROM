@@ -1,4 +1,3 @@
-// KAGE CARROM - Minimalist RED / BLACK / WHITE Canvas Renderer
 import {
   CANVAS_SIZE,
   FRAME_WIDTH,
@@ -8,7 +7,6 @@ import {
   STRIKER_RADIUS,
   PIECE_TYPES,
   BASELINES,
-  RED_BLACK_WHITE_PALETTE,
 } from './constants';
 
 export class CarromRenderer {

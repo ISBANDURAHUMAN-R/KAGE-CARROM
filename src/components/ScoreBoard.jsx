@@ -1,11 +1,9 @@
-// KAGE CARROM - Responsive Minimalist Top HUD (Mobile, Tablet & Desktop)
 import React from 'react';
 import { Volume2, VolumeX, Music, RotateCcw, Home, Clock } from 'lucide-react';
 import { sound } from '../utils/audio';
 
 export default function ScoreBoard({
   mode,
-  aiDifficulty,
   currentTurn,
   scorePlayer = 0,
   scoreEnemy = 0,

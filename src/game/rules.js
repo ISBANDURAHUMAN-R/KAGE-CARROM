@@ -1,6 +1,3 @@
-// KAGE CARROM - Core Game Referee (Matching Unity GameManager & BoardScript Logic)
-import { PIECE_TYPES } from './constants';
-
 export const GAME_MODES = {
   VS_AI: 'vs-ai',
   PASS_AND_PLAY: 'pass-and-play',
@@ -27,16 +24,14 @@ export class CarromRules {
     this.currentTurn = 'player1'; // 'player1' (White) | 'player2' (Black/Enemy)
     this.phase = TURN_PHASES.PLACING_STRIKER;
 
-    // Scores matching Unity BoardScript: scorePlayer, scoreEnemy
     this.scorePlayer = 0;
     this.scoreEnemy = 0;
     this.pocketed = { player1: 0, player2: 0 };
 
-    // 120-second match timer matching Unity TimerScript
     this.timeLeft = 120.0;
     this.isTimerRunning = true;
 
-    this.targetScore = 8; // Score >= 8 triggers win
+    this.targetScore = 8;
     this.strokePocketed = [];
     this.queenStatus = 'on_board';
 
@@ -49,7 +44,6 @@ export class CarromRules {
     };
   }
 
-  // Register pocket event immediately (matching Unity OnTriggerEnter2D in BoardScript)
   registerPocket(type) {
     this.strokePocketed.push(type);
     const isPlayer = this.currentTurn === 'player1';
@@ -74,7 +68,7 @@ export class CarromRules {
 
       case PIECE_TYPES.QUEEN:
         if (isPlayer) {
-          this.scorePlayer += 2; // +2 points matching Unity BoardScript
+          this.scorePlayer += 2;
           this.queenStatus = 'covered_player1';
         } else {
           this.scoreEnemy += 2;
@@ -108,18 +102,14 @@ export class CarromRules {
     }
   }
 
-  // Evaluate stroke after all pieces stop (matching Unity GameManager & StrikerController)
   evaluateStroke(coinsRemaining) {
     this.matchStats.totalStrokes += 1;
     const isPlayer = this.currentTurn === 'player1';
 
-    // Check game over condition from Unity GameManager:
-    // scorePlayer >= 8 || scoreEnemy >= 8 || timeLeft <= 0 || all coins cleared
     const whiteCount = coinsRemaining.filter((c) => c.customType === PIECE_TYPES.WHITE).length;
     const blackCount = coinsRemaining.filter((c) => c.customType === PIECE_TYPES.BLACK).length;
     const isBoardCleared = whiteCount === 0 || blackCount === 0;
 
-    let isGameOver = false;
     let winner = null;
 
     if (
@@ -128,7 +118,6 @@ export class CarromRules {
       this.timeLeft <= 0 ||
       isBoardCleared
     ) {
-      isGameOver = true;
       if (this.scorePlayer > this.scoreEnemy) {
         winner = 'player1';
       } else if (this.scoreEnemy > this.scorePlayer) {
@@ -159,9 +148,7 @@ export class CarromRules {
       };
     }
 
-    // Turn rotation matching Unity StrikerController & EnemyStrikerController:
-    // If player legally scored white coin without foul, grant another turn (carrom standard bonus),
-    // otherwise rotate turn to opponent!
+    // Turn rotation: pocketing player coin without foul retains turn, otherwise alternates to opponent
     const pocketedOwn = this.strokePocketed.filter(
       (t) => t === (isPlayer ? PIECE_TYPES.WHITE : PIECE_TYPES.BLACK)
     ).length;
